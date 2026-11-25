@@ -1,0 +1,284 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100vh;
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f1f8f1;
+    color: #1f2937;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ===== Cabeçalho compacto ===== */
+.topo {
+    padding: 14px 32px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #2e7d32, #66bb6a);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.topo > div {
+    order: 2;
+    margin-bottom: 0 !important;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 14px;
+}
+
+.topo a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.topo h1 {
+    order: 1;
+    margin: 0;
+    font-size: 22px;
+}
+
+.topo p {
+    display: none;
+}
+
+/* ===== Grade principal em 2 colunas ===== */
+.conteudo {
+    flex: 1;
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 24px 32px;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+        "cadastro filtros"
+        "cadastro mensagem"
+        "cadastro lista";
+    column-gap: 24px;
+    row-gap: 14px;
+    align-items: start;
+    overflow: hidden;
+}
+
+/* ===== Coluna Esquerda: Cadastro ===== */
+.cadastro {
+    grid-area: cadastro;
+    margin: 0;
+    padding: 24px 28px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+}
+
+.cadastro h2 {
+    margin: 0 0 18px;
+    font-size: 21px;
+    color: #1b5e20;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5efe5;
+}
+
+.cadastro form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.linha {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.linha .campo {
+    flex: 1;
+    min-width: 140px;
+}
+
+.cadastro label {
+    margin-bottom: 6px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.cadastro input[type="text"],
+.cadastro input[type="number"],
+.cadastro select,
+.cadastro textarea {
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 15px;
+    font-family: inherit;
+    border: 1px solid #c8d6c8;
+    border-radius: 8px;
+    background: #ffffff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.cadastro input:focus,
+.cadastro select:focus,
+.cadastro textarea:focus {
+    outline: none;
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+}
+
+.cadastro button[type="submit"] {
+    align-self: flex-start;
+    margin-top: 6px;
+    padding: 12px 26px;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: #ffffff;
+    background: #2e7d32;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.cadastro button[type="submit"]:hover {
+    background: #1b5e20;
+}
+
+.cadastro button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.alerta {
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.alerta p {
+    margin: 0;
+}
+
+.alerta p + p {
+    margin-top: 4px;
+}
+
+.alerta-sucesso {
+    background: #ecfdf5;
+    border: 1px solid #6ee7b7;
+    color: #065f46;
+    font-weight: 600;
+}
+
+.alerta-erro {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    color: #991b1b;
+}
+
+/* ===== Coluna Direita: Consulta e Resultados ===== */
+.filtros {
+    grid-area: filtros;
+    margin: 0;
+    padding: 18px 20px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    display: flex;
+    align-items: center;
+}
+
+#busca {
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 15px;
+    border: 1px solid #c8d6c8;
+    border-radius: 8px;
+}
+
+#busca:focus {
+    outline: none;
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+}
+
+.mensagem {
+    grid-area: mensagem;
+    margin: 0;
+    padding: 14px 18px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.grade {
+    grid-area: lista;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    align-content: start;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    border-left: 5px solid #2e7d32;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-corpo {
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.card-corpo h2 {
+    margin: 2px 0;
+    font-size: 19px;
+    color: #111827;
+}
+
+.card-corpo p {
+    margin: 0;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.etiqueta {
+    align-self: flex-start;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1b5e20;
+    background: #c8e6c9;
+    border-radius: 999px;
+}
+
+.preco {
+    margin-top: 8px;
+    font-size: 21px;
+    color: #2e7d32;
+}
